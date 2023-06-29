@@ -1,9 +1,15 @@
 
+import { useEffect } from 'react';
 import './App.css';
 import Counter from './component/Counter';
 import Todo from './component/Todo';
 
-function App() {
+
+const App=()=> {
+ 
+  
+
+
   return (
     <div className="App">
       <h1>Main</h1>

@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, reset } from "../store/counterSlice";
+import {  fetchData } from "../store/getProdouct";
 
 const Counter = () => {
-  const count = useSelector((state) => state.counter.value);
   const dispatch = useDispatch();
+  const count = useSelector((state) => state.counter.value);
+  const socialArt = useSelector((state)=>state.product.data);
+  
+  useEffect(() => {
+    if(!socialArt) dispatch(fetchData());
+  }, []);
+  
+  console.log(socialArt,"socialArt")
 
   return (
     <div>
