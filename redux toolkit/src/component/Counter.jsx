@@ -11,8 +11,7 @@ const Counter = () => {
   const product = useSelector((state)=>state.product.data);
   
 const postid = useSelector((state)=>state.singleproduct.id)
-console.log(postid
-  ,"postid==>")
+console.log(postid,"postid==>")
   
   useEffect(() => {
    dispatch(fetchData());
