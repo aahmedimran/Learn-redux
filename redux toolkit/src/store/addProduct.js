@@ -1,21 +1,17 @@
-import { createSlice,createAsyncThunk  } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-  export const addproduct = createAsyncThunk("users/create",  (name,uni) => console.log(name,uni))
+export const addproduct = createAsyncThunk("users/create", async ({ name, uni }) => {
+  try {
+    const response = await axios.post("http://localhost:3000/users", {
+      Name: name,
+      Universty: uni,
+      id: new Date().getTime()
+    });
+    return response.data
+  } catch (error) { console.log(error, 'error') }
+})
 
-    // try {
-    //     const response = await axios.post("http://localhost:3000/users",
-    //     Name:
-    //     Universty
-    //     );
-
-    //     return response.data.data
-    // } catch (error) {
-    //     console.log(error, 'error')
-    // }
-    // const users = await data.json();
-    // return products;
- 
 
 export const addProductSlice = createSlice({
   name: "addProduct",

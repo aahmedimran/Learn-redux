@@ -3,18 +3,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, reset } from "../store/counterSlice";
 import {  fetchData } from "../store/getProdouct";
 import { addproduct } from "../store/addProduct";
+import { getSingleproduct } from "../store/getSingleProduct";
 
 const Counter = () => {
   const dispatch = useDispatch();
   const count = useSelector((state) => state.counter.value);
   const product = useSelector((state)=>state.product.data);
   
-
+const postid = useSelector((state)=>state.singleproduct.id)
+console.log(postid
+  ,"postid==>")
   
   useEffect(() => {
    dispatch(fetchData());
   }, []);
-  
+  useEffect(()=>{dispatch(getSingleproduct(5))},[])
  
 
   return (
